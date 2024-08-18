@@ -1,5 +1,5 @@
+import 'package:app/views/sign%20in%20view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Inro extends StatelessWidget {
   const Inro({super.key});
 
@@ -20,7 +20,7 @@ class Inro extends StatelessWidget {
         ),
       ),
        Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Text('Helps you to contact everyone with just easy way',
         textAlign: TextAlign.left,
          style: TextStyle(
@@ -43,14 +43,18 @@ class Inro extends StatelessWidget {
         ),
       ),
      const SizedBox(height: 50,),
-      ElevatedButton(onPressed: (){} ,
-       child: Text(
-        'Get Started'
-       ),
+      ElevatedButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context){
+             return  SignIn();
+        }));
+      } ,
        style: ElevatedButton.styleFrom(
         backgroundColor: Color(0xff771F98),
-        fixedSize: Size(295, 46),
+        fixedSize: const Size(295, 46),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+       ),
+       child: const Text(
+        'Get Started'
        ),
        )
     ],
