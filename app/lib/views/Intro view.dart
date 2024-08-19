@@ -44,9 +44,7 @@ class Inro extends StatelessWidget {
       ),
      const SizedBox(height: 50,),
       ElevatedButton(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context){
-             return  SignIn();
-        }));
+       Navigator.pushNamed(context,'signIn');
       } ,
        style: ElevatedButton.styleFrom(
         backgroundColor: Color(0xff771F98),

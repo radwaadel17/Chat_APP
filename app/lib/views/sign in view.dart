@@ -90,10 +90,9 @@ class SignIn extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                   return signUp();
-                  }));
-                },
+                        Navigator.pushNamed(context, 'signUp');
+                  }
+                 ,
                 child: const Text(
                   ' Sign up',
                   style: TextStyle(

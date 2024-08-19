@@ -69,7 +69,7 @@ class signUp extends StatelessWidget {
                     borderRadius: BorderRadius.circular(24)),
               ),
               child: const Text(
-                'Sign in',
+                'Sign up',
                 style: TextStyle(
                   fontSize: 15,
                 ),
@@ -93,7 +93,7 @@ class signUp extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 child: const Text(
-                  ' Sign In',
+                  ' Sign in',
                   style: TextStyle(
                     color: Color(0xff771F98),
                   ),
