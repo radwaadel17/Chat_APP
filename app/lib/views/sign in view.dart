@@ -1,3 +1,4 @@
+import 'package:app/Componets/Text%20field%20design.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatelessWidget {
@@ -38,55 +39,8 @@ class SignIn extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        Padding(
-          padding: const EdgeInsets.all(24),
-          child: Text(
-            'Email Address',
-            style: TextStyle(
-              fontSize: 15,
-              color: const Color(0xff771F98).withOpacity(0.8),
-            ),
-          ),
-        ),
-        //  SizedBox(height: 0.5,),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: TextField(
-            decoration: InputDecoration(
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(24)),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(
-                color: Color(0xff771F98),
-              ) , borderRadius: BorderRadius.circular(24)),
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(24),
-          child: Text(
-            'Password',
-            style: TextStyle(
-              fontSize: 15,
-              color: Color(0xff771F98).withOpacity(0.8),
-            ),
-          ),
-        ),
-        //  SizedBox(height: 0.5,),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: TextField(
-            decoration: InputDecoration(
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(24)),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(
-                color: Color(0xff771F98),
-               
-              ) , borderRadius: BorderRadius.circular(24)),
-            ),
-          ),
-        ),
+       customTextfield(txt: 'Email Adress'),
+       customTextfield(txt: 'Passwod'),
         Align(
           alignment: Alignment.topRight,
           child: Padding(
@@ -127,14 +81,13 @@ class SignIn extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
             child: Text(
-              "Don't have an account? Sign UP",
+              "Don't have an account? Sign Up",
               style: TextStyle(
                   //  color: Color(0xff771F98).withOpacity(0.8),
                   ),
             ),
           ),
         ),
-
         // SizedBox(height: 50,),
       ]),
     );
