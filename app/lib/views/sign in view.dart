@@ -39,8 +39,8 @@ class SignIn extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-       customTextfield(txt: 'Email Adress'),
-       customTextfield(txt: 'Passwod'),
+      const  customTextfield(txt: 'Email Adress'),
+      const  customTextfield(txt: 'Passwod'),
         Align(
           alignment: Alignment.topRight,
           child: Padding(
@@ -76,16 +76,24 @@ class SignIn extends StatelessWidget {
             ),
           ),
         ),
-        const Align(
-          alignment: Alignment.center,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-            child: Text(
-              "Don't have an account? Sign Up",
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24 , vertical: 12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Don't have an account?",
+                style: TextStyle(
+                    //  color: Color(0xff771F98).withOpacity(0.8),
+                    ),
+              ),
+              Text(' Sign up' ,
               style: TextStyle(
-                  //  color: Color(0xff771F98).withOpacity(0.8),
-                  ),
-            ),
+                                color: Color(0xff771F98),
+          
+              ),
+              ),
+            ],
           ),
         ),
         // SizedBox(height: 50,),

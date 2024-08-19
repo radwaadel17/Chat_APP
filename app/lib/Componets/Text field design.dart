@@ -6,6 +6,7 @@ class customTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
     children: [
        Padding(
           padding: const EdgeInsets.all(24),
@@ -29,6 +30,10 @@ class customTextfield extends StatelessWidget {
                 color: Color(0xff771F98),
               ) , borderRadius: BorderRadius.circular(24)),
               hintText: 'Enter $txt' ,
+              hintStyle: TextStyle(
+                fontSize: 15 , 
+                color: Colors.grey.withOpacity(0.5),
+              )
             ),
           ),
         ),
