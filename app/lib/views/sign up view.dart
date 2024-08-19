@@ -1,9 +1,9 @@
-import 'package:app/Componets/Text%20field%20design.dart';
-import 'package:app/views/sign%20up%20view.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+import '../Componets/Text field design.dart';
+
+class signUp extends StatelessWidget {
+  const signUp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class SignIn extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: Text(
-            'Hello, Welcome Back',
+            'Hello, Welcome ',
             textAlign: TextAlign.left,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
@@ -32,7 +32,7 @@ class SignIn extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: Text(
-            'Happy to see you again, to use your account please login first.',
+            'Happy to see you, to use app please register first.',
             textAlign: TextAlign.left,
             style: TextStyle(fontSize: 14, color: Colors.grey),
           ),
@@ -83,19 +83,17 @@ class SignIn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Don't have an account?",
+                "Already have an account?",
                 style: TextStyle(
                     //  color: Color(0xff771F98).withOpacity(0.8),
                     ),
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                   return signUp();
-                  }));
+                  Navigator.pop(context);
                 },
                 child: const Text(
-                  ' Sign up',
+                  ' Sign In',
                   style: TextStyle(
                     color: Color(0xff771F98),
                   ),
