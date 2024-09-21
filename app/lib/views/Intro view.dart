@@ -1,3 +1,4 @@
+import 'package:app/constants.dart';
 import 'package:app/views/sign%20in%20view.dart';
 import 'package:flutter/material.dart';
 class Inro extends StatelessWidget {
@@ -47,12 +48,15 @@ class Inro extends StatelessWidget {
        Navigator.pushNamed(context,'signIn');
       } ,
        style: ElevatedButton.styleFrom(
-        backgroundColor: Color(0xff771F98),
+        backgroundColor: KColor,
         fixedSize: const Size(295, 46),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
        ),
        child: const Text(
-        'Get Started'
+        'Get Started' ,
+        style: TextStyle(
+          color: Colors.white,
+        ),
        ),
        )
     ],

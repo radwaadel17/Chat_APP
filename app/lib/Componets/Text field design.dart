@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class customTextfield extends StatelessWidget {
-  const customTextfield({super.key , required this.txt});
+  const customTextfield({super.key , required this.txt, required this.onChanged});
   final String txt ;
+  final Function(String)? onChanged ;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,7 +22,13 @@ class customTextfield extends StatelessWidget {
         //  SizedBox(height: 0.5,),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: TextField(
+          child: TextFormField(
+            validator: (data) {
+              if(data == ''){
+                return 'This field is required';
+              }
+            },
+            onChanged: onChanged,
             decoration: InputDecoration(
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(24)),
@@ -33,7 +40,7 @@ class customTextfield extends StatelessWidget {
               hintStyle: TextStyle(
                 fontSize: 15 , 
                 color: Colors.grey.withOpacity(0.5),
-              )
+              ),
             ),
           ),
         ),
