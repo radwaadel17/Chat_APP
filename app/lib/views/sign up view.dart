@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../Componets/Text field design.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class signUp extends StatelessWidget {
   const signUp({super.key});
@@ -11,39 +13,40 @@ class signUp extends StatelessWidget {
     String? password;
     GlobalKey<FormState> formKey = GlobalKey();
     return Scaffold(
+          backgroundColor: Colors.white,
       resizeToAvoidBottomInset: true,
       body: Form(
         key: formKey,
         child: ListView(children: [
-          const SizedBox(height: 80),
-          const Align(
+           SizedBox(height: 50.h),
+           Align(
             alignment: Alignment.topRight,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
               child: SizedBox(
-                  height: 80,
+                  height: 80.h,
                   child: Image(
                       image: AssetImage('assets/images/Dayflow Sitting.png'))),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+           Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Text(
               'Hello, Welcome ',
               textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Text(
               'Happy to see you, to use app please register first.',
               textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 14, color: Colors.grey),
+              style: TextStyle(fontSize: 14.sp, color: Colors.grey),
             ),
           ),
-          const SizedBox(
-            height: 20,
+         SizedBox(
+            height: 20.h,
           ),
           customTextfield(
             txt: 'Email Adress',
@@ -57,24 +60,13 @@ class signUp extends StatelessWidget {
               password = data;
             },
           ),
-          Align(
-            alignment: Alignment.topRight,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-              child: Text(
-                'Forget Password?',
-                style: TextStyle(
-                  color: const Color(0xff771F98).withOpacity(0.8),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
+          
+          SizedBox(
+            height: 50.h,
           ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding:  EdgeInsets.symmetric(horizontal: 24.w),
               child: ElevatedButton(
                 onPressed: () async {
                   if (formKey.currentState!.validate()) {
@@ -102,19 +94,19 @@ class signUp extends StatelessWidget {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff771F98),
-                  fixedSize: const Size(295, 46),
+                  fixedSize:  Size(295.w, 46.h),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24)),
+                      borderRadius: BorderRadius.circular(24.r)),
                 ),
-                child: const Text(
+                child:  Text(
                   'Sign up',
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                  style: TextStyle(fontSize: 15.sp, color: Colors.white),
                 ),
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

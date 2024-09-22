@@ -12,6 +12,7 @@ void main() async{
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
+  
 }
 
 class ChatApp extends StatelessWidget {
@@ -21,7 +22,7 @@ class ChatApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: Size(360, 690),
-      minTextAdapt: true,
+      //minTextAdapt: true,
       child: MaterialApp(
         routes: {
           'signUp': (context) => signUp(),
