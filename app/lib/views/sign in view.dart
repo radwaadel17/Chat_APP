@@ -1,4 +1,4 @@
-import 'package:app/Componets/Text%20field%20design.dart';
+import 'package:app/widgets/Text%20field%20design.dart';
 import 'package:app/constants.dart';
 import 'package:app/views/sign%20up%20view.dart';
 import 'package:flutter/material.dart';
@@ -103,7 +103,7 @@ class _SignInState extends State<SignIn> {
                         );
                         ShowSnackBar(context, 'Sucsess Login');
                         Navigator.pushNamed(context, 'ch');
-                        
+                       
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'user-not-found') {
                           ShowSnackBar(context, 'No user found for that email.');
@@ -118,9 +118,6 @@ class _SignInState extends State<SignIn> {
                       setState(() {
                         
                       });
-                    }
-                    else{
-                      
                     }
                   },
                   style: ElevatedButton.styleFrom(

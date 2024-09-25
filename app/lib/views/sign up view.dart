@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Componets/Text field design.dart';
+import '../widgets/Text field design.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
