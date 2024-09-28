@@ -1,14 +1,22 @@
+import 'package:app/models/message.dart';
 import 'package:app/widgets/chatBubble.dart';
 import 'package:app/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ChatPage extends StatelessWidget {
+class ChatPage extends StatefulWidget {
   ChatPage({super.key});
    static String id = 'ChatPage';
+
+  @override
+  State<ChatPage> createState() => _ChatPageState();
+}
+
+class _ChatPageState extends State<ChatPage> {
    //FirebaseFirestore firestore = FirebaseFirestore.instance;
    CollectionReference Messages = FirebaseFirestore.instance.collection('Messages');
+
   TextEditingController controller = TextEditingController();
 
   @override
@@ -17,6 +25,11 @@ class ChatPage extends StatelessWidget {
      future: Messages.get() , 
      builder: (context , snapshot){
       if(snapshot.hasData){
+        List<Message> ListOfMessages = [] ;
+        for(int i = 0 ; i < snapshot.data!.docs.length ; i++)
+        {
+          ListOfMessages.add(Message.fromJson(snapshot.data!.docs[i]));
+        }
         return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -41,9 +54,9 @@ class ChatPage extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: 10,
+              itemCount: ListOfMessages.length,
               itemBuilder: (context , index) { 
-              return chatBubble();
+              return chatBubble(txt: ListOfMessages[index].msg,);
             }),
           ),
            Padding(
@@ -55,6 +68,9 @@ class ChatPage extends StatelessWidget {
                   'msg':data,
                });
                controller.clear();
+               setState(() {
+                 
+               });
               },
               decoration: InputDecoration(
                 border: OutlineInputBorder(

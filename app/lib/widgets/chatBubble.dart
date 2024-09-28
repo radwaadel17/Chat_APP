@@ -5,8 +5,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class chatBubble extends StatelessWidget {
   const chatBubble({
     super.key,
+    required this.txt,
   });
-
+ final String txt ;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -23,7 +24,7 @@ class chatBubble extends StatelessWidget {
              bottomEnd: Radius.circular(30.r)  , 
             )
           ),
-          child: const Text("hiiiii " , style: TextStyle(color: Colors.white),),
+          child: Text(txt , style: TextStyle(color: Colors.white),),
         ),
       ),
     );
