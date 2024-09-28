@@ -16,13 +16,10 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<Object>(
-      stream: Messages.snapshots(),
+    return StreamBuilder<QuerySnapshot>(
+      stream: Messages.orderBy('createdAt').snapshots(),
       builder: (context, snapshot) {
-        return FutureBuilder<QuerySnapshot>(
-         future: Messages.get() , 
-         builder: (context , snapshot){
-          if(snapshot.hasData){
+       if(snapshot.hasData){
             List<Message> ListOfMessages = [] ;
             for(int i = 0 ; i < snapshot.data!.docs.length ; i++)
             {
@@ -64,6 +61,7 @@ class ChatPage extends StatelessWidget {
                   onSubmitted: (data){
                    Messages.add({
                       'msg':data,
+                      'createdAt' : Timestamp.now(),
                    });
                    controller.clear();
                 
@@ -87,7 +85,6 @@ class ChatPage extends StatelessWidget {
           else{
             return Text('Loading...');
           }
-         });
       }
     );
   }
