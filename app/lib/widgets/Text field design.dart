@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class customTextfield extends StatelessWidget {
   const customTextfield({super.key , required this.txt, required this.onChanged});
@@ -10,7 +11,7 @@ class customTextfield extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
     children: [
        Padding(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.all(24.r),
           child: Text(
             txt,
             style: TextStyle(
@@ -21,7 +22,7 @@ class customTextfield extends StatelessWidget {
         ),
         //  SizedBox(height: 0.5,),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding:  EdgeInsets.symmetric(horizontal: 24.w),
           child: TextFormField(
             validator: (data) {
               if(data == ''){
@@ -31,11 +32,11 @@ class customTextfield extends StatelessWidget {
             onChanged: onChanged,
             decoration: InputDecoration(
               border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(24)),
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(24.r)),
               focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(
                 color: Color(0xff771F98),
-              ) , borderRadius: BorderRadius.circular(24)),
+              ) , borderRadius: BorderRadius.circular(24.r)),
               hintText: 'Enter $txt' ,
               hintStyle: TextStyle(
                 fontSize: 15 , 

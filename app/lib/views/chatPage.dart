@@ -7,13 +7,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ChatPage extends StatelessWidget {
   ChatPage({super.key});
    static String id = 'ChatPage';
-   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  CollectionReference Messages = FirebaseFirestore.instance.collection('Messages');
+   //FirebaseFirestore firestore = FirebaseFirestore.instance;
+   CollectionReference Messages = FirebaseFirestore.instance.collection('Messages');
   TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return FutureBuilder<QuerySnapshot>(
+     future: Messages.get() , 
+     builder: (context , snapshot){
+      if(snapshot.hasData){
+        return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: KColor,
@@ -67,6 +71,11 @@ class ChatPage extends StatelessWidget {
         ],
       )
     );
+      }
+      else{
+        return Text('Loading...');
+      }
+     });
   }
 }
 
