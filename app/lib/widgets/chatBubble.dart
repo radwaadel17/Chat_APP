@@ -22,6 +22,7 @@ class chatBubble extends StatelessWidget {
             borderRadius: BorderRadiusDirectional.only(topStart: Radius.circular(30.r) ,
              topEnd: Radius.circular(30.r)  , 
              bottomEnd: Radius.circular(30.r)  , 
+             //bottomStart: Radius.circular(30.r)
             )
           ),
           child: Text(txt , style: TextStyle(color: Colors.white),),

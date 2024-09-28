@@ -8,16 +8,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ChatPage extends StatelessWidget {
   ChatPage({super.key});
    static String id = 'ChatPage';
-
    //FirebaseFirestore firestore = FirebaseFirestore.instance;
-   CollectionReference Messages = FirebaseFirestore.instance.collection('Messages');
-
+  CollectionReference Messages = FirebaseFirestore.instance.collection('Messages');
   TextEditingController controller = TextEditingController();
-
+  ScrollController _controller = ScrollController() ;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: Messages.orderBy('createdAt').snapshots(),
+      stream: Messages.orderBy('createdAt' , descending: true).snapshots(),
       builder: (context, snapshot) {
        if(snapshot.hasData){
             List<Message> ListOfMessages = [] ;
@@ -49,6 +47,8 @@ class ChatPage extends StatelessWidget {
             children: [
               Expanded(
                 child: ListView.builder(
+                  reverse: true,
+                  controller: _controller,
                   itemCount: ListOfMessages.length,
                   itemBuilder: (context , index) { 
                   return chatBubble(txt: ListOfMessages[index].msg,);
@@ -64,6 +64,12 @@ class ChatPage extends StatelessWidget {
                       'createdAt' : Timestamp.now(),
                    });
                    controller.clear();
+                   _controller.animateTo(
+                     0,
+                     duration: const Duration(milliseconds: 500) , 
+                     curve: Curves.fastOutSlowIn,
+                   );                   
+
                 
                   },
                   decoration: InputDecoration(
